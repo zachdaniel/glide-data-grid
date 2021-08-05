@@ -1,4 +1,10 @@
-const { userAgent } = window.navigator;
+let userAgent;
+if (typeof window !== "undefined") {
+  const { userAgent: uA } = window.navigator;
+  userAgent = uA;
+} else {
+  userAgent = ""
+}
 
 class Lazy<T> {
     private fn: () => T;
